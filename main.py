@@ -40,6 +40,7 @@ def add():
 
     return render_template('add.html')
 
+# debug=True
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
