@@ -1,0 +1,23 @@
+.input-grid {
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+}
+
+.div-flex {
+    display: flex;
+}
+
+.button-flex {
+    align-items: center;
+}
+
+.dataset-handler {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (min-width: 1200px) {
+    .container-min-width {
+        margin: 0 350px 0 350px;
+    }
+}

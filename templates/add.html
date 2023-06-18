@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="text-center my-5">Sistem Temu Kembali Informasi</h1>
+  </div>
+  <hr class="border border-secondary opacity-50" />
+  <div class="container-min-width my-5">
+    <div class="container-sm mx-4">
+      <h2 class="mb-4">Tambah Dataset</h2>
+      <form method="post">
+        <label for="input_term" class="form-label">Term yang Mewakili</label>
+        <input type="text" class="form-control mb-4" id="input_term" name="input_term" required/>
+        <label for="input_class" class="form-label">Class</label>
+        <input type="text" class="form-control mb-4" id="input_class" name="input_class" required/>
+        <button type="submit" class="btn btn-primary button-flex">Simpan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

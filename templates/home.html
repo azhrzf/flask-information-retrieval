@@ -1,0 +1,83 @@
+{% set docs_key_list = documents[0] %}
+{% set documents_list = documents[1] %}
+{% set labels_list = documents[2] %}
+{% set cos_similarity = cos_similarity %}
+{% set class_hasil = class_hasil %}
+{% extends 'layout.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="text-center my-5">Sistem Temu Kembali Informasi</h1>
+  </div>
+  <hr class="border border-secondary opacity-50" />
+  <div class="container-min-width my-5">
+    <div class="container-sm">
+      <form method="post" class="mx-4">
+        <label for="input_query" class="form-label">Query</label>
+        <div class="row input-grid">
+          <div class="input-grid1">
+            <input type="text" class="form-control" id="input_query" name="input_query" value="{{request.form['input_query']}}"/>
+          </div>
+          <button type="submit" class="btn btn-primary button-flex">Submit</button>
+        </div>
+      </form>
+      <div class="mx-4 my-4">
+        <p>
+      <b>Hasil:</b> {{ class_hasil if class_hasil is not none else "" }}
+        </p>
+      </div>
+      <div class="mx-4 my-5 dataset-handler">
+        <h3>Dataset</h3>
+        <a href="{{ url_for('add') }}"><button type="submit" class="btn btn-primary button-flex">+ Tambah Data</button></a>
+      </div>
+      <table class="table table-hover mx-4">
+        <thead>
+          <tr>
+            <th>Dokumen</th>
+            <th>Term yang mewakili dokumen</th>
+            <th>Class</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key in docs_key_list %}
+            <tr>
+              <td>d{{ loop.index }}</td>
+              <td>{{ documents_list[loop.index - 1] }}</td>
+              <td>{{ labels_list[loop.index - 1] }}</td>
+              <td>
+                <button type="button" class="btn btn-primary">Delete</button>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if cos_similarity is not none and cos_similarity.any() %}
+        <div class="mx-4 my-5">
+          <h3>Similarity</h3>
+        </div>
+        <table class="table table-hover mx-4 my-3">
+          <thead>
+            <tr>
+              <th>Dokumen</th>
+              <th>Term yang mewakili dokumen</th>
+              <th>Class</th>
+              <th>Similarity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for doc_idx in range(cos_similarity[0]|length) %}
+              {% set score = cos_similarity[0][doc_idx] %}
+              {% set document = documents_list[doc_idx] %}
+              <tr>
+                <td>d{{ doc_idx + 1 }}</td>
+                <td>{{ document }}</td>
+                <td>{{ labels_list[doc_idx] }}</td>
+                <td>{{ '{:.5f}'.format(score) }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
