@@ -12,7 +12,7 @@ label = dataset.iloc[:, -1].values  # politic olahraga etc
 docs_list(docs_key, docs, label)
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
