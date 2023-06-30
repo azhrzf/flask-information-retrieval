@@ -54,6 +54,6 @@ Jika Anda memiliki pertanyaan atau pertanyaan lainnya, silakan hubungi salah sat
 
 - Azhar Zaidan Fauzi
 - Muhammad Imam Ariq Sya'bana
-- Muhammad Farhan Ansho
+- Muhammad Farhan Anshor
 - Najjah Emira Zahwa
 - Nizwar Al-Sya'ban
