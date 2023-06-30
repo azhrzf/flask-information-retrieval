@@ -13,7 +13,7 @@ Ini adalah aplikasi Flask yang menghitung cosine similarity antara suatu term de
 2. Buka direktori proyek:
 
    ```bash
-   cd aplikasi-flask-cosine-similarity
+   cd sistem-tki
    ```
 
 3. Buat dan aktifkan lingkungan virtual (opsional tapi disarankan):
